@@ -465,7 +465,7 @@ if __name__ == '__main__':
     )
 
     try:
-        with open('/home/moonlab/multi_agent_thompson/src/maps/real_maps/windmill_lake_1.pkl', 'rb') as f:
+        with open('/home/moonlab/oas_gpucb/maps/windmill_lake_1.pkl', 'rb') as f:
             cost_map = pickle.load(f, encoding='latin1')
         print("✅ Successfully loaded 'windmill_lake_1.pkl'")
         print(f"🗺️ Map dimensions: {cost_map.shape}, Data type: {cost_map.dtype}")

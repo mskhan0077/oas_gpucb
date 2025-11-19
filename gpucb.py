@@ -387,7 +387,7 @@ class GPUCB_NEW(GPUCB):
             final_mean_map[~self.mask] = np.nan
             print(f"Final mean map shape: {final_mean_map.shape}")
             print(f"Valid indices shape: {self.valid_indices.shape}")
-            output_filename = 'predicted_mean_map_new.npy'
+            output_filename = '/home/moonlab/oas_gpucb/results/mean/windmill_lake_1.npy'
             np.save(output_filename, final_mean_map)
             print(f"Final predicted mean map saved as '{output_filename}'")
         else:
@@ -517,12 +517,12 @@ if __name__ == '__main__':
         name=f"gpucb_exploration_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     )
     try:
-        with open('/home/moonlab/multi_agent_thompson/src/maps/real_maps/elkhart.pkl', 'rb') as f:
+        with open('/home/moonlab/oas_gpucb/maps/windmill_lake_1.pkl', 'rb') as f:
             cost_map = pickle.load(f, encoding='latin1')
-        print("✅ Successfully loaded 'elkhart.pkl'")
+        print("✅ Successfully loaded 'windmill_lake_1.pkl'")
         print(f"🗺️ Map dimensions: {cost_map.shape}, Data type: {cost_map.dtype}")
     except FileNotFoundError:
-        print("❌ Error: 'cost_map_1.pkl' not found. Creating a dummy map for demonstration.")
+        print("❌ Error: 'windmill_lake_1.pkl' not found. Creating a dummy map for demonstration.")
         cost_map = np.random.rand(100, 100) * 50
 
     # Boolean mask of valid exploration areas (required for NEW and ADAPTIVE_RADIUS)
